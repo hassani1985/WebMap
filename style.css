@@ -1,0 +1,110 @@
+
+/* CSS PAGE DES CONTENUE*/
+.container {
+   margin: 15px;
+}
+input[type="radio"] {
+   display:none;
+}
+.container {
+   border: 1px solid black;
+   border-radius: 20px;
+}
+.leaflet-control-layers label { 
+   /* CSS LABEL DES LEAFLET CONTROL*/
+   display: block;
+   font-size: 100px;
+   font-size: 1.08333em;
+   text-transform: uppercase;
+   font-weight:bolder;
+   }
+#label {
+   /* CSS LABEL DES PAGE DES CONTENUE*/
+   display:block;
+   padding: 10px;
+   border-bottom: 1px solid black;
+   color: white;
+   background: #0076ff;
+   z-index: 2; /* put it above the accordion content */
+}
+
+#divOccupation #divGeologie #divSlope {
+   border-bottom: 1px solid black;
+         padding: 0;
+         opacity: 0;
+         max-height: 0;
+         overflow: hidden;
+         z-index: -1;
+         transition: 0.3s linear;
+}
+input:checked ~ #divOccupation  {
+   padding: 15px;
+   opacity: 1;
+   height: 500px;
+   z-index: 1; 
+}
+input:checked ~  #divGeologie   {
+   padding: 15px;
+   opacity: 1;
+   height: 600px;
+   z-index: 1; 
+}
+input:checked ~  #divSlope {
+   padding: 15px;
+   opacity: 1;
+   height: 400px;
+   width: 300;
+   z-index: 1; 
+   bottom:5%
+}
+
+ #divGeologie #divSlope #divOccupation {
+ 
+  top: 0;
+  right: 0;
+  left: 0;
+   bottom: 10;
+ 
+}
+
+@media screen and ( max-width:600px){
+   input:checked ~  #divGeologie {height: 350px;}
+   input:checked ~ #divOccupation{height: 350px;}
+   input:checked ~  #divSlope{height: 350px;}
+   #label{width: 400px;}
+}
+
+
+
+/*legend slop*/
+
+ .legend {
+   line-height: 18px;
+   color: #555;
+   background-color: rgb(45, 47, 47);
+   padding: 6px;
+   border-radius: 10px;
+ 
+ }
+ 
+ .legend::before{
+   content: "legend ";
+   color: aqua;
+  padding-block-end: 30px ;
+ 
+  padding-bottom: 100px;
+  position: absolute;
+  
+ }
+ 
+ .legend i {
+   width: 18px;
+   height: 18px;
+   float: left;
+   margin-right: 8px;
+   opacity: 0.7;
+ }
+
+
+
+
