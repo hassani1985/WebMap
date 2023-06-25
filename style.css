@@ -28,7 +28,7 @@ input[type="radio"] {
    z-index: 2; /* put it above the accordion content */
 }
 
-#divOccupation #divGeologie #divSlope {
+#divOccupation #divGeologie #divSlope #divAspect {
    border-bottom: 1px solid black;
          padding: 0;
          opacity: 0;
@@ -58,7 +58,13 @@ input:checked ~  #divSlope {
    bottom:5%
 }
 
- #divGeologie #divSlope #divOccupation {
+input:checked ~  #divAspect  {
+   padding: 15px;
+   opacity: 1;
+   height: 600px;
+   z-index: 1; 
+}
+ #divGeologie #divSlope #divOccupation #divAspect{
  
   top: 0;
   right: 0;
@@ -71,6 +77,7 @@ input:checked ~  #divSlope {
    input:checked ~  #divGeologie {height: 350px;}
    input:checked ~ #divOccupation{height: 350px;}
    input:checked ~  #divSlope{height: 350px;}
+   input:checked ~  #divAspect{height: 350px;}
    #label{width: 400px;}
 }
 
@@ -88,7 +95,7 @@ input:checked ~  #divSlope {
  }
  
  .legend::before{
-   content: "legend ";
+   /*content: "legend ";*/
    color: aqua;
   padding-block-end: 30px ;
  
