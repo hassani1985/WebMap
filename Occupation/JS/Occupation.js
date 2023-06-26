@@ -17,10 +17,6 @@ const carteO = L.map('divOccupation').setView([35.18, -3.940274], 11.2);
 
 
 
-
-
-
-
 // 2 exemple function style Ocupation du sol
 function ColorStyle(p,){
     if (p === "Eau") return "#B8E6FF";
@@ -57,10 +53,50 @@ var SoleJsvar = L.geoJSON(SoleJs, { style:SoleStyle,
 
 
 
+/*  code ajoter une legend des carte des donne alphapitique    */ 
+function ColorLegend(p,){
+  if (p === "Eau") return "#005CE6";
+  if (p === "Arbres") return "#008000";
+  if (p === "Cultures") return "#43BC43";
+  if (p === "Zone Batie") return "#FFA500";
+  if (p === "Sol nu") return "#B2B2B2";
+  if (p === "Parcours") return "#D0D0E1";
+
+} 
+
+function createLegend() {
+    const legendO = L.control({ position: 'bottomleft' });
+  
+    legendO.onAdd = function (carteO) {
+      const div = L.DomUtil.create('div', 'info legend');
+      const aspects = [
+        "Eau", 
+        "Arbres", 
+        "Cultures",
+        "Zone Batie",
+        "Parcours"];
+  
+      for (let i = 0; i < aspects.length; i++) {
+        const aspect = aspects[i];
+        const backgroundColor = ColorLegend(aspect); // Assuming AspectColor() function returns the background color for the aspect
+  
+        const squareHTML = `<i style="background:${backgroundColor}"></i>`;
+        const labelHTML = aspect;
+  
+        div.innerHTML += squareHTML + ' ' + labelHTML + '<br>';
+      }
+  
+      return div;
+    };
+  
+    return legendO;
+  }
+  
+  const legendOControl = createLegend();
+  legendOControl.addTo(carteO); // Assuming `map` is your Leaflet map object
 
 
-
-
+ 
 
 
 
