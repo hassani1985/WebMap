@@ -53,12 +53,7 @@
 	max-width: 10;
 
 }
-.leaflet-control-layers-base::before{
-	content:  "_____________________________";
-	color: rgb(11, 11, 11);
-	max-width: 10;
 
-}
 .leaflet-control-layers-separator::before{
 	
 	color: #f5f1f1;
@@ -81,12 +76,17 @@
 	box-shadow: 0 1px 5px rgba(240, 233, 233, 0.4);
 	background: #fbeeee;
 	border-radius: 10px;
+	height: auto;
+	
 	}
 	 .leaflet-control-layers::after {
-		content:  'Legend';
-		position: absolute;
-		color: #070707;
+		content:  'Controle';
+		position:absolute;
+		color: #120be1;
+		font:bolder;
 		font-variant: small-caps;
+		height: auto;
+		right:0px;
 		
 	}
 .leaflet-control-layers-toggle {
