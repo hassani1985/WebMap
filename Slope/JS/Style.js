@@ -10,8 +10,8 @@ var listeMap ={
    };
 var coucheMaps={
     "Pente": SlopVar,
-    "Zones Etude": Zones,
     "Riseau Hydraulique": riseauxvar,
+    "Zones Etude": Zones,
 
     
                    };
@@ -20,7 +20,7 @@ var coucheMaps={
 var legend=L.control.layers(listeMap ,coucheMaps,{hideSingleBase:true}).addTo(carteS).false;
 /*collapsed:false,*/ 
 
-L.control.scale({imperial:false,maxWidth:250,updateWhenIdle:true,sortLayers:true}).addTo(carteS)
+L.control.scale({imperial:false,maxWidth:100,updateWhenIdle:true,sortLayers:true,position: "bottomright"}).addTo(carteS)
 
 
 

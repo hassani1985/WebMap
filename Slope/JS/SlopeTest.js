@@ -48,7 +48,7 @@ const carteS = L.map('divSlope').setView([35.18, -3.940274], 11);
        var SlopVar= L.geoJson(Slope, { style: style}).addTo(carteS);
 
 
-        var legend = L.control({position: 'bottomright'});
+        var legend = L.control({position: 'bottomleft'});
 
 legend.onAdd = function (carteS) {
 
