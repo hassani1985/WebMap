@@ -3,7 +3,7 @@ const carteA = L.map('divAspect').setView([35.18, -3.940274], 11);
             maxZoom: 20,
            
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        });
+        }).addTo(carteA);
 
         var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         	maxZoom: 17,
@@ -36,7 +36,7 @@ var AspectVar =L.geoJson(Aspect,{style:styleAspect}).addTo(carteA)
 /*  code ajoter une legend des carte des donne alphapitique      */ 
 
 function createLegend() {
-    const legend = L.control({ position: 'bottomright' });
+    const legend = L.control({ position: 'bottomleft' });
   
     legend.onAdd = function (carteA) {
       const div = L.DomUtil.create('div', 'info legend');
@@ -63,6 +63,52 @@ function createLegend() {
   
 
 
+/*   Riseau hydraulique */
+var riseauxvar =  L.geoJSON(riseaux, {style:{fillOpacity:1,weight:1}}).addTo(carteA).bindPopup(function (layer) { 
+  return layer.feature.properties.arcid; 
+})
+
+
+/** Zoune etude */
+function zoneStyle(Feature){
+  return{
+      weight: 2,
+      opacity: 1,
+      color: 'red',
+      dashArray: '3',
+      fillOpacity: 0.7
+
+  };
+}
+
+var ZonesAspect =  L.geoJSON(ZonesA,{ 
+  style:zoneStyle,
+  
+  
+} ).addTo(carteA);
+
+/*var Name = L.geoJSON(NameZone,).bindPopup(function(layer){
+  return layer.feature.properties.Name; 
+}).addTo(carte).openPopup()*/
 
 
 
+
+/**  Control */
+var listeMap ={
+  "Open TopoMap" :OpenTopoMap,
+ /* "Esri WorldImagery" :Esri_WorldImagery,*/
+  "OSM":OSM,
+  
+ };
+var coucheMaps={
+"Riseau Hydraulique":riseauxvar,
+"Aspect":AspectVar,
+"Zones Etude":ZonesAspect,
+};
+                 
+                 
+var legendd=L.control.layers(listeMap ,coucheMaps,{hideSingleBase:true}).addTo(carteA).false;
+/*collapsed:false,*/ 
+
+L.control.scale({imperial:false,maxWidth:100,updateWhenIdle:true,sortLayers:true,position: "bottomright"}).addTo(carteA)
