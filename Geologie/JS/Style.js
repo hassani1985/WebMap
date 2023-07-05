@@ -19,7 +19,7 @@ var coucheMaps={
 var legend=L.control.layers(listeMap ,coucheMaps,{hideSingleBase:true}).addTo(carteG).false;
 /*collapsed:false,*/ 
 
-L.control.scale({imperial:false,maxWidth:250,updateWhenIdle:true,sortLayers:true}).addTo(carteG)
+L.control.scale({imperial:false,maxWidth:100,updateWhenIdle:true,sortLayers:true,position: "bottomright"}).addTo(carteG)
 
 
 

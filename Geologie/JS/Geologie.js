@@ -1,21 +1,27 @@
-const carteG = L.map('divGeologie').setView([35.18, -3.940274], 11);
-        var OSM = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 20,
-           
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(carteG);
 
-        var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        	maxZoom: 17,
-	        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        })
-        var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+// Création de la carte Leaflet avec une vue centrée sur les coordonnées spécifiées
+const carteG = L.map('divGeologie').setView([35.18, -3.940274], 11);
+
+// Ajout de la couche OpenStreetMap à la carte
+var OSM = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 20,
+    attribution: '&copy; <a href="http://www.openstreetmap.org">OpenStreetMap</a>'
+}).addTo(carteG);
+
+// Ajout de la couche OpenTopoMap à la carte
+var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
 });
 
-// ajouter couche geologie
-//var SignesVar = L.geoJSON(Signe,).addTo(carte)
-function ColorStyle(p,){
+// Ajout de la couche Esri World Imagery à la carte
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+
+// Fonction de style pour définir les couleurs en fonction du symbole géologique
+function ColorStyle(p) {
+    // Définition des couleurs en fonction des valeurs de p (symbole de la géologie)
     if (p === " A") return "#E5F2EB"; 
     if (p === "g-miS") return "#AC8B8B";
     if (p === "n5-6K") return "#31644A";
@@ -56,30 +62,29 @@ function ColorStyle(p,){
     if (p === "tmAH") return "#ACC0AD";
     if (p === "tsAH") return "#E3EAE4";
     
-   
+    // ...
 }
-function SoleStyle(Feature){
-    return{
-    color:"black",
-    weight:0.02,
-    fillColor:ColorStyle(Feature.properties.SymboleA),
-    fillOpacity:.7
 
+// Fonction de style pour définir le style des entités géologiques
+function SoleStyle(feature) {
+    return {
+        color: "black",
+        weight: 0.02,
+        fillColor: ColorStyle(feature.properties.SymboleA),
+        fillOpacity: 0.5
     };
-};
+}
 
-
-var GeologieVar = L.geoJSON(Geologie,{style:SoleStyle}).addTo(carteG).bindPopup(function (layer) {
-    return layer.feature.properties.Symbole
-});
-
-/*var GeologieVar = L.geoJson(Geologie,{style:SoleStyle,
-    onEachFeature: function(feature,layer){
-        layer.bindTooltip(feature.properties.SymboleA,{permanent:true,direction:'center'});
-        
+// Ajout de la couche géologique à la carte avec le style et les info-bulles
+var GeologieVar = L.geoJson(Geologie, {
+    style: SoleStyle,
+    onEachFeature: function(feature, layer) {
+        // Ajout d'une info-bulle pour chaque entité géologique
+        layer.bindTooltip(feature.properties.SymboleA, {
+            permanent: true,
+            direction: 'center'
+        });
     }
-}).addTo(carteG).bindPopup(function (layer) {
-    return layer.feature.properties.Symbole
-})*/
-
-
+}).addTo(carteG).bindPopup(function(layer) {
+    return layer.feature.properties.Symbole;
+});

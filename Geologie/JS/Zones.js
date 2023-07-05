@@ -15,11 +15,11 @@ var Zones =  L.geoJSON(Zones,{
     style:zoneStyle,
     
     
-} ).addTo(carte);
+} ).addTo(carteG);
 
 /*var Name = L.geoJSON(NameZone,).bindPopup(function(layer){
     return layer.feature.properties.Name; 
-}).addTo(carte).openPopup()*/
+}).addTo(carte).openPopup()
 
 var Name = L.geoJSON(NameZone,{
     onEachFeature:function (feature,layer){
@@ -30,4 +30,4 @@ var Name = L.geoJSON(NameZone,{
                
 
     }
-}).addTo(carte)
+}).addTo(carte)*/
