@@ -17,7 +17,7 @@ function createMapLegend() {
 
 
 
-    var labels = ['Failles', 'Masquées', 'Contacts anormaux:chevauchements', 'Contacts anormaux de nappes de charriage'];
+    var labels = ['Faille ', ' Faille Masquées', 'Contacts anormaux:chevauchements', 'Contacts anormaux de nappes de charriage'];
     var colors = ['#Black'];
     var icons = [ 'Geologie/JS/icon/minus_747362.png','Geologie/JS/icon/dashed-line_8095927.png', 'Geologie/JS/icon/minus_9919376.png',"Geologie/JS/icon/minus_7131364.png"];
     
