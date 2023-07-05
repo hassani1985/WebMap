@@ -1,0 +1,64 @@
+/* Styles pour l'expansion des layers de contrôle Leaflet */
+.leaflet-control-layers-expanded {
+    background-color: rgb(45, 47, 47);
+    color: #fffefe;
+}
+
+/* Styles pour le bouton de bascule des layers de contrôle Leaflet */
+.leaflet-control-layers-toggle {
+    box-sizing: border-box !important;
+    height: 31px !important;
+    width: 31px !important;
+    border: 0.8px solid rgba(255, 255, 255, 0.27) !important;
+    border-radius: 2px !important;
+    background-color:  rgb(144, 150, 150) !important;
+    box-shadow: -2px 2px 2px 0 rgba(104, 101, 101, 0.1) !important;
+    background-image: url(https://www.marinetraffic.com/img/leaflet/W_mt_map_icon.png) !important;
+    background-size: 60% !important;
+}
+
+/* Styles pour les contrôles d'attribution et d'échelle */
+.leaflet-container .leaflet-control-attribution {
+    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    /*display: none; /* Cacher le titre du bouton de page Leaflet */
+}
+
+.leaflet-container .leaflet-control-attribution a {
+    display: none;
+}
+
+.leaflet-container .leaflet-control-attribution::before {
+    content: "Labriki Karima   ";
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+
+/*________________________________________________*/
+.leaflet-container {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    /* font-size: 0.75rem; */
+    line-height: 1;
+   
+}   
+
+.leaflet-touch .leaflet-bar a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+.leaflet-bar a {
+    background-color:  rgb(238, 248, 248);
+    border-bottom: 1px solid #ccc;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+}
+       

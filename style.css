@@ -1,59 +1,61 @@
+/* CSS PAGE DES CONTENUE */
 
-/* CSS PAGE DES CONTENUE*/
+/* Conteneur principal */
 .container {
    margin: 15px;
 }
+
+/* Accordion */
 #accordion  {
    display:none;
 }
+
+/* Style du conteneur */
 .container {
    border: 1px solid black;
    border-radius: 20px;
 }
-.leaflet-control-layers label { 
-   /* CSS LABEL DES LEAFLET CONTROL*/
-   display: block;
-   font-size: 100px;
-   font-size: 1.08333em;
-   text-transform: uppercase;
-   font-weight:bolder;
-  
-   }
-    label span span {
-      font-size: 10px;
 
-   }
+/* Style du label de la page des contenus */
 #label {
-   /* CSS LABEL DES PAGE DES CONTENUE*/
    display:block;
    padding: 10px;
    border-bottom: 1px solid black;
    color: white;
    background: #0076ff;
-   z-index: 2; /* put it above the accordion content */
+   z-index: 2; /* placé au-dessus du contenu de l'accordéon */
 }
 
+/* Styles des div pour Occupation, Géologie, Slope, Aspect */
 #divOccupation #divGeologie #divSlope #divAspect {
    border-bottom: 1px solid black;
-         padding: 0;
-         opacity: 0;
-         max-height: 0;
-         overflow: hidden;
-         z-index: -1;
-         transition: 0.3s linear;
+   padding: 0;
+   opacity: 0;
+   max-height: 0;
+   overflow: hidden;
+   z-index: -1;
+   transition: 0.3s linear;
+   height: 700px;
 }
+
+
+/* Styles pour afficher le contenu lorsque la case à cocher est cochée */
 input:checked ~ #divOccupation  {
    padding: 15px;
    opacity: 1;
    height: 500px;
    z-index: 1; 
+   
 }
+
 input:checked ~  #divGeologie   {
    padding: 15px;
    opacity: 1;
    height: 500px;
    z-index: 1; 
 }
+
+
 input:checked ~  #divSlope {
    padding: 15px;
    opacity: 1;
@@ -69,55 +71,20 @@ input:checked ~  #divAspect  {
    height: 500px;
    z-index: 1; 
 }
- #divGeologie #divSlope #divOccupation #divAspect{
- 
-  top: 0;
-  right: 0;
-  left: 0;
+
+/* Positionnement des div */
+#divGeologie #divSlope #divOccupation #divAspect{
+   top: 0;
+   right: 0;
+   left: 0;
    bottom: 10;
- 
 }
 
-@media screen and ( max-width:600px){
-   input:checked ~  #divGeologie {height: 350px;}
-   input:checked ~ #divOccupation{height: 350px;}
-   input:checked ~  #divSlope{height: 350px;}
-   input:checked ~  #divAspect{height: 350px;}
-   #label{width: 400px;}
+/* Styles responsives pour les écrans de petite taille */
+@media screen and (max-width: 600px) {
+   input:checked ~  #divGeologie { height: 550px; }
+   input:checked ~ #divOccupation { height: 350px; }
+   input:checked ~  #divSlope { height: 350px; }
+   input:checked ~  #divAspect { height: 350px; }
+   #label { width: 400px; }
 }
-
-
-
-/*legend slop*/
-
- .legend {
-   line-height: 18px;
-   color: #fffefe;
-   background-color: rgb(45, 47, 47);
-   padding: 6px;
-   border-radius: 10px;
- 
- }
- 
- /*.legend::before{
-   content: "legend ";
-   color: rgb(227, 46, 14);
-  padding-block-end: 30px ;
- 
-  padding-bottom: 100px;
-  position:absolute;
-  bottom:  20px;
-  
- }*/
- 
- .legend i {
-   width: 18px;
-   height: 18px;
-   float: left;
-   margin-right: 8px;
-   opacity: 0.7;
- }
-
-
-
-

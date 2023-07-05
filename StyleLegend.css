@@ -1,0 +1,66 @@
+
+/*  urnanisation */
+
+#map {
+    height: 400px;
+  }
+  .map-legend {
+    color: #101010;
+    background-color: rgb(149, 155, 155);
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    border-radius: 10px;
+    
+    
+       
+  }
+  .legend-item {
+    margin-bottom: 5px;
+    
+  }
+  .legend-item span {
+    display: inline-block;
+    width: 13px;
+    height: 10px;
+    margin-right: 5px;
+  }
+  #i{
+    width: 30px;
+    height: 2px;
+  }
+ 
+ /* --------------- geologie -----------------*/
+ 
+  
+  .legend-item img {
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+    margin-right: 5px;
+    
+  }
+  .legend-item p {
+    display:inline;
+    
+   
+  }
+ 
+  /* Styles de la légende du slope */
+.legend {
+  line-height: 18px;
+  color: #080808;
+  background-color:  rgb(149, 155, 155);
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+  
