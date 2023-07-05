@@ -47,26 +47,37 @@ const carteS = L.map('divSlope').setView([35.18, -3.940274], 11);
         
        var SlopVar= L.geoJson(Slope, { style: style}).addTo(carteS);
 
+       var legend = L.control({position: 'bottomleft'});
 
-        var legend = L.control({position: 'bottomleft'});
+       legend.onAdd = function (carteS) {
+         var div = L.DomUtil.create('div', 'info legend');
+         var title = "Légende de la carte"; // Titre de la légende
+       
+         // Ajouter le titre de la légende
+         div.innerHTML += '<div class="legend-title">' + title + '</div>';
 
-legend.onAdd = function (carteS) {
+         // Appliquer une hauteur maximale et activer la barre de défilement
+  div.style.maxHeight = '200px'; // Définir la hauteur maximale en pixels
+  div.style.overflowY = 'auto'; // Activer la barre de défilement verticale
 
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 5, 10, 20, 30, 70.47],
-        labels = [];
+       
+         var grades = [0, 5, 10, 20, 30, 70.47],
+             labels = [];
+       
+         // loop through our density intervals and generate a label with a colored square for each interval
+         for (var i = 0; i < grades.length; i++) {
+             div.innerHTML +=
+                 '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                 grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+         }
+       
+         return div;
+       };
+       
+       legend.addTo(carteS);
+       
+        
 
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-
-    return div;
-};
-
-legend.addTo(carteS);
 
 
 
