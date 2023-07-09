@@ -1,3 +1,64 @@
+/* Style legend geologe sous titre */
+.sub-title{
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: red;
+  text-align: center;
+  font-size: 15px;
+  font: 1,8em sans-serif;
+  font: bold;
+  font-style: inherit;
+
+}
+
+
+/* Style général de la légende */
+.map-legend {
+  background-color: white;
+  padding: 2px;
+  font-size: 14px;
+}
+
+/* Style du titre de la légende */
+.legend-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: red;
+}
+
+/* Style des éléments de la légende */
+.legend-item {
+  margin-bottom: 5px;
+}
+
+/* Style de la couleur géologique */
+.geology-color {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Style du texte de la légende géologique */
+.geology-legend p {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*  urnanisation */
 
@@ -28,6 +89,7 @@
   #i{
     width: 30px;
     height: 2px;
+  
   }
  
  /* --------------- geologie -----------------*/
@@ -50,7 +112,7 @@
 .legend {
   line-height: 18px;
   color: #080808;
-  background-color:  rgb(149, 155, 155);
+  background-color: lightgray;;
   padding: 6px;
   border-radius: 10px;
 }
