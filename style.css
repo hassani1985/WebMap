@@ -1,4 +1,4 @@
-/* CSS PAGE DES CONTENUE */
+8/* CSS PAGE DES CONTENUE */
 
 /* Conteneur principal */
 .container {
@@ -87,4 +87,5 @@ input:checked ~  #divAspect  {
    input:checked ~  #divSlope { height: 350px; }
    input:checked ~  #divAspect { height: 350px; }
    #label { width: 400px; }
+#searchResult{width:350px}
 }
