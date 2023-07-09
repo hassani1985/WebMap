@@ -26,7 +26,7 @@ searchControl.on('search:locationfound', function (e) {
   // resultDiv.style.padding = '0.5rem';
   // resultDiv.style.display = 'flex';
   // resultDiv.style.flexDirection = 'column';
-  resultDiv.style.width = '15em';
+  resultDiv.style.width = '350px';
   resultDiv.style.border = '1px solid #333';
   resultDiv.style.boxShadow = '8px 8px 5px #444';
   resultDiv.style.padding = '8px 12px';
