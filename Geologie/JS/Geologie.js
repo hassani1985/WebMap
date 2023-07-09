@@ -22,22 +22,22 @@ var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 // Fonction de style pour définir les couleurs en fonction du symbole géologique
 function ColorStyle(p) {
     // Définition des couleurs en fonction des valeurs de p (symbole de la géologie)
-    if (p === " A") return "#E5F2EB"; 
+    if (p === " A") return "#E5F2EB";
     if (p === "g-miS") return "#AC8B8B";
     if (p === "n5-6K") return "#31644A";
     if (p === "Al") return "#F5644A";
     if (p === "AlLs") return "#4C6B12";
-    if (p === "D") return "#2ADCAB"; 
+    if (p === "D") return "#2ADCAB";
     if (p === "GN") return "#105213";
     if (p === "IAM") return "#77A3CE";
     if (p === "SpV") return "#C9CE77";
     if (p === "c1-4 TS-OM") return "#4CE600";
-    if (p === "c1-6K") return "#B57B00"; 
+    if (p === "c1-6K") return "#B57B00";
     if (p === "d") return "#6A00DE";
     if (p === "dAT") return "#00968C";
     if (p === "e-2-5AM") return "#E5A700";
     if (p === "e-g") return "#E1B1BE";
-    if (p === "e-gB") return "#EA00E1"; 
+    if (p === "e-gB") return "#EA00E1";
     if (p === "e-gMBB") return "#E0EB29";
     if (p === "j-1B") return "#a7e4e9";
     if (p === "j-cB") return "#3D3F25";
@@ -61,7 +61,7 @@ function ColorStyle(p) {
     if (p === "tm-sAT") return "#6CFF77";
     if (p === "tmAH") return "#ACC0AD";
     if (p === "tsAH") return "#E3EAE4";
-    
+
     // ...
 }
 
@@ -78,13 +78,27 @@ function SoleStyle(feature) {
 // Ajout de la couche géologique à la carte avec le style et les info-bulles
 var GeologieVar = L.geoJson(Geologie, {
     style: SoleStyle,
-    onEachFeature: function(feature, layer) {
+    onEachFeature: function (feature, layer) {
         // Ajout d'une info-bulle pour chaque entité géologique
         layer.bindTooltip(feature.properties.SymboleA, {
             permanent: true,
             direction: 'center'
         });
+         // Ajout des événements de survol pour les entités géologiques
+         layer.on('mouseover', function (e) {
+            var layer = e.target;
+            layer.setStyle({
+              fillOpacity: 0.8 // Nouvelle opacité au survol
+            });
+          });
+          
+          layer.on('mouseout', function (e) {
+            var layer = e.target;
+            layer.setStyle({
+              fillOpacity: 1 // Opacité par défaut après le survol
+            });
+          });
     }
-}).addTo(carteG).bindPopup(function(layer) {
+}).addTo(carteG).bindPopup(function (layer) {
     return layer.feature.properties.Symbole;
 });
