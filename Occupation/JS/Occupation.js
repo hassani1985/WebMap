@@ -42,15 +42,24 @@ function SoleStyle(Feature) {
 
 var SoleJsvar = L.geoJSON(SoleJs, {
     style: SoleStyle,
-    //popup
-    /* onEachFeature:function (feature,layer){
+    onEachFeature: function (feature, layer) {
         layer.bindPopup(layer.feature.properties.Nature);
-        layer.on("mouseover",function(e){
-           // this.openPopup();
-        })
-    }*/
+
+        layer.on('mouseover', function (e) {
+            var layer = e.target;
+            layer.setStyle({
+                fillOpacity: 0.5,
+               
+            });
+        });
+
+        layer.on('mouseout', function (e) {
+            var layer = e.target;
+            layer.setStyle({
+                fillOpacity: 1
+            });
+        });
+    }
 }).addTo(carteO).bindPopup(function (layer) {
     return layer.feature.properties.Nature;
 }).addTo(carteO);
-// Crée une couche Leaflet à partir des données GeoJSON dans la variable SoleJs et applique le style défini par la fonction SoleStyle. Ajoute également une fenêtre contextuelle affichant la propriété "Nature" lorsque l'on clique sur une entité.
-
